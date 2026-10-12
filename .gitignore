@@ -1,0 +1,32 @@
+
+# Virtual Environments
+stockenv/
+venv/
+env/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Streamlit (Keep configs, ignore sensitive secrets)
+.streamlit/secrets.toml
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# Data and Notebook caches
+.ipynb_checkpoints/
+*.csv
+*.xlsx
