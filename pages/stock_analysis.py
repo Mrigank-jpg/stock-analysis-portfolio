@@ -35,7 +35,13 @@ df_info['Value'] = [
 st.plotly_chart(plotly_table(df_info.reset_index()), use_container_width=True)
 
 # Historical Data
+# Historical Data
 data = yf.download(ticker, start=start_date, end=end_date)
+
+# Flatten the new yfinance MultiIndex structure
+if isinstance(data.columns, pd.MultiIndex):
+    data.columns = data.columns.get_level_values(0)
+
 if not data.empty and len(data) > 1:
     daily_change = data['Close'].iloc[-1] - data['Close'].iloc[-2]
     st.metric(label="Daily Change", value=round(data['Close'].iloc[-1], 2), delta=round(daily_change, 2))
